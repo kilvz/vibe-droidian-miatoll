@@ -1,0 +1,40 @@
+name: build
+
+on:
+  push:
+    branches: [droidian]
+  pull_request:
+    branches: [droidian]
+
+jobs:
+  build-debs:
+    runs-on: ubuntu-latest
+    container: debian:trixie-slim
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: |
+          apt-get update
+          apt-get install -y debhelper dpkg-dev git
+
+      - name: Generate changelog and build
+        run: |
+          VERSION="1.0~git$(date +%Y%m%d).$(git rev-parse --short HEAD)"
+          cat > debian/changelog <<EOF
+          adaptation-xiaomi-miatoll ($VERSION) unstable; urgency=medium
+
+            * CI build.
+
+           -- Droidian Miatoll <droidian-miatoll@example.invalid>  $(date -R)
+          EOF
+          dpkg-buildpackage -us -uc -b
+
+      - name: Upload .debs
+        uses: actions/upload-artifact@v4
+        with:
+          name: adaptation-miatoll-debs
+          path: |
+            ../adaptation-*.deb
+          if-no-files-found: error
