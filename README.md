@@ -9,7 +9,14 @@ with one fix applied: **dual SIM now works**.
 
 - Device codename: `miatoll` (joyeuse = Redmi Note 9 Pro Global, model M2003J6B2G)
 - Halium 10 / Android 10 vendor (API 29), Linux kernel 4.14
-- Droidian 101, Phosh
+- Droidian 101 (patchlevel 2026-10-23), Phosh
+
+> **Version note (checked 2026-11-16):** Droidian has **not** reached 102.
+> The current release is still **101 (patchlevel 2026-10-23)**, published
+> 2026-10-23 — a new `101.20261116` tag appeared today but has no
+> published release yet, and no 102 tag, branch or announcement exists.
+> A nightly miatoll image from 2026-11-15 is also available. This repo
+> is kept in sync with the 101 release.
 
 ## The dual-SIM fix
 
@@ -68,9 +75,17 @@ From the [official device page](https://devices.droidian.org/#/devices/miatoll):
 
 ### Option A — flash the official image, then install the fix (easiest)
 
-1. Flash the official Droidian 101 image for miatoll with the
+1. Flash the official Droidian 101 image for miatoll (patchlevel
+   2026-10-23) with the
    [Droidian Installer](https://droidian.org/) (or `flash_all.sh` from
-   the image — see below) and boot once.
+   the image — see below) and boot once. Direct download of the
+   recovery-flashable image (1.5 GB):
+   [droidian-OFFICIAL-phosh-phone-xiaomi_miatoll-api29-arm64-101.20261023_20261022.zip](https://github.com/droidian-images/droidian/releases/download/droidian/101.20261023/droidian-OFFICIAL-phosh-phone-xiaomi_miatoll-api29-arm64-101.20261023_20261022.zip)
+   — full release at
+   [droidian/101.20261023](https://github.com/droidian-images/droidian/releases/tag/droidian/101.20261023).
+   A nightly build (2026-11-15) is also published under the
+   [nightly release](https://github.com/droidian-images/droidian/releases/tag/nightly)
+   if you want the freshest image.
 2. Get the fixed adaptation package, either:
    - download the `.deb` from the **Actions** tab of this repo
      (the `build` workflow builds it on every push), or
