@@ -11,7 +11,7 @@ Package: adaptation-xiaomi-miatoll
 Architecture: all
 Depends: ${misc:Depends},
          linux-bootimage-xiaomi-miatoll,
-         adaptation-hybris-api29-phone,
+         adaptation-hybris-api29-phone-dual-sim,
          adaptation-miatoll-configs,
          adaptation-miatoll-android,
          ofono-binder-plugin,
